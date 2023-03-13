@@ -32,8 +32,15 @@ export const apiSlice = createApi({
                 return queryString
 
             }
-        })
+        }),
+        editVideo: builder.mutation({
+            query: ({ id, data }) => ({
+                url: `/videos/${id}`,
+                method: 'PATCH',
+                body: data
+            }),
+        }),
     }),
 });
 
-export const { useAddVideoMutation, useGetVideosQuery, useGetVideoQuery, useGetRelatedVideosQuery } = apiSlice
+export const { useEditVideoMutation, useAddVideoMutation, useGetVideosQuery, useGetVideoQuery, useGetRelatedVideosQuery } = apiSlice
