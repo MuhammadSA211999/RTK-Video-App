@@ -1,11 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import deleteImage from "../../assets/delete.svg";
 import editImage from "../../assets/edit.svg";
-import { useGetVideoQuery } from "../../features/api/apiSlice";
 
-export default function Description() {
-    const { videoId } = useParams
-    const { data: video, isLoading, isError, error } = useGetVideoQuery(videoId)
+export default function Description({ video }) {
+
     const { title, id, description, date } = video
     return (
         <div>
